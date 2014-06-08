@@ -1,4 +1,4 @@
-class Volunteer::DashboardController < ApplicationController
+class Volunteer::DashboardController < Volunteer::ApplicationController
   def index
   end
 end

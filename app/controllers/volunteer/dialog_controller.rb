@@ -1,4 +1,4 @@
-class Volunteer::DialogController < ApplicationController
+class Volunteer::DialogController < Volunteer::ApplicationController
   def index
   end
 

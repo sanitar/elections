@@ -1,11 +1,22 @@
 <div style="margin-top:200px;">
-	<% unless current_user.present? %>
+	<% if !current_user.present? %>
 		<p class="text-center">
 			<%= link_to 'Авторизация через VK', user_omniauth_authorize_path(:vkontakte), class: "btn btn-default btn-lg" %>
 		</p>
-	<% else %>
+	<% elsif current_user.role_id.to_i < 1 %>
 		<p class="text-center">
-			<%= current_user.url %>
+			Привет, <%= "#{current_user.first_name} #{current_user.last_name }" %>!
+
+			<%= form_tag volunteer_me_path, method: :post, remote: true do %>
+
+				<%= text_field_tag :v_code, '', placeholder: 'Секретный код волонтера', class: "form-control" %>
+				<p class="text-center" style='margin-top:20px'>
+					<%= submit_tag 'Отправить!', class: "btn btn-default"%>
+				</p>
+
+			<% end %>
+
+			<div id="volunteer-info"></div>
 		</p>
 	<% end %>
 </div>
