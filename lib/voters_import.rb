@@ -14,6 +14,7 @@ module VotersImport
 
 				voter = Voter.create({
 					vk_id: id,
+					social_weight: social_weight,
 					first_name: name,
 					last_name: surname,
 					image_url: image,
