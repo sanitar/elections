@@ -1,0 +1,1 @@
+require "voters_import"

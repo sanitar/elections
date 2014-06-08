@@ -1,18 +1,30 @@
 Rails.application.routes.draw do
 
+
   namespace :volunteer do
     get 'dialog/index'
     get 'dialog/contact'
     get 'dialog/next'
 
-    get 'dashboard/index'
+    root to: 'dashboard#index'
   end
+
+
+  namespace :manager do
+    root to: 'dashboard#index'
+    
+    get 'volunteers/index'
+    get 'volunteers/show'
+    get 'voters/index'  
+    get 'voters/show'
+  end
+
 
   post 'volunteer-me' => 'splash#volunteer_me', as: :volunteer_me
 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+
   root 'splash#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

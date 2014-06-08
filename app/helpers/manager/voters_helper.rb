@@ -1,0 +1,2 @@
+module Manager::VotersHelper
+end

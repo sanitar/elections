@@ -1,0 +1,9 @@
+<h1>Электорат</h1>
+
+<ul>
+	<% @voters.each do |voter| %>
+		<li><%= voter.first_name %> <%= voter.last_name %></li>
+	<% end %>
+</ul>
+
+<ul class="pagination"><%= will_paginate @voter, container: false %></ul>

@@ -1,2 +1,2 @@
-class Manager::DashboardController < ApplicationController
+class Manager::DashboardController < Manager::ApplicationController
 end

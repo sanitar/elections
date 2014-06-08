@@ -23,6 +23,8 @@ class Voter < ActiveRecord::Base
 	has_many :educations
 	has_many :schools, through: :educations
 
+	has_one :conversation
+
 	belongs_to :status
 
 end

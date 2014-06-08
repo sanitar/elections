@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608145339) do
+ActiveRecord::Schema.define(version: 20140608170714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "voter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "educations", force: true do |t|
     t.integer  "school_vk_id"
@@ -84,6 +91,12 @@ ActiveRecord::Schema.define(version: 20140608145339) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status_id"
+    t.integer  "conversation_status", default: 0
+    t.string   "image_url"
   end
+
+  add_index "voters", ["can_write"], name: "index_voters_on_can_write", using: :btree
+  add_index "voters", ["district"], name: "index_voters_on_district", using: :btree
+  add_index "voters", ["vk_id"], name: "index_voters_on_vk_id", unique: true, using: :btree
 
 end

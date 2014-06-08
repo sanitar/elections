@@ -1,0 +1,9 @@
+<h1>Волонтеры</h1>
+
+<ul>
+	<% @volunteers.each do |volunteer| %>
+		<li><%= volunteer.first_name %> <%= volunteer.last_name %></li>
+	<% end %>
+</ul>
+
+<ul class="pagination"><%= will_paginate @volunteers, container: false %></ul>

@@ -7,9 +7,9 @@ class SplashController < ApplicationController
 				when 1
 					true
 				when 2 # волонтер
-					redirect_to volunteer_dashboard_index_path
+					redirect_to volunteer_root_path
 				when 3 # админ
-					redirect_to root_path
+					redirect_to manager_root_path
 				else
 					true
 			end
@@ -18,8 +18,11 @@ class SplashController < ApplicationController
 
 
 	def volunteer_me
-		if params[:v_code] == '123'
+		if params[:v_code] == 'volunteer'
 			current_user.update_column(:role_id, 2)
+			@ok = true
+		elsif params[:v_code] == 'manager'
+			current_user.update_column(:role_id, 3)
 			@ok = true
 		else
 			@ok = false

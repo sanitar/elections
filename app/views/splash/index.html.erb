@@ -3,7 +3,7 @@
 		<p class="text-center">
 			<%= link_to 'Авторизация через VK', user_omniauth_authorize_path(:vkontakte), class: "btn btn-default btn-lg" %>
 		</p>
-	<% elsif current_user.role_id.to_i < 1 %>
+	<% elsif current_user.role_id.to_i < 2 %>
 		<p class="text-center">
 			Привет, <%= "#{current_user.first_name} #{current_user.last_name }" %>!
 
