@@ -6,6 +6,7 @@ class Manager::DataController < Manager::ApplicationController
 
 	def create
 		@packet = DataPacket.create(data_params)
+		redirect_to manager_data_index_path
 	end
 
 	def import_packet
