@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   namespace :volunteer do
     get 'dialog/index'
     get 'dialog/contact'
@@ -15,8 +16,14 @@ Rails.application.routes.draw do
     
     get 'volunteers/index'
     get 'volunteers/show'
+
     get 'voters/index'  
     get 'voters/show'
+
+    get 'data/index'
+    put 'data/create'
+    post 'data/import-packet/:id' => 'data#import_packet', as: :import_packet
+
   end
 
 

@@ -1,9 +1,9 @@
 module VotersImport
 	require 'csv'
 
-	def self.import (filepath = Rails.root.join('tmp', 'test.csv'))
-
-		body = File.read(filepath)
+	def self.import (id)
+		packet = DataPacket.find_by_id(id)
+		body = Paperclip.io_adapters.for(packet.packet).read
 
 		body.each_line.with_index do |line, index| 
 			begin
@@ -30,5 +30,6 @@ module VotersImport
 				puts e
 			end
 		end
+		packet.update_column(:status, 1)
 	end
 end

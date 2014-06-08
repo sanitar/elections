@@ -1,0 +1,35 @@
+<h1>Данные</h1>
+
+<ul>
+	<% @packets.each do |packet| %>
+		<li><%= packet.title %>
+			<% if packet.status == 0 %>
+				<%= link_to 'импортировать', manager_import_packet_path(packet.id), method: :post %>
+			<% else %>
+				<i>(импортирован: <%= packet.updated_at %>)</i>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+
+<ul class="pagination"><%= will_paginate @packets, container: false %></ul>
+
+
+<div class="well">
+	<h3>Загрузить новый пакет с пользователями</h3>
+
+	<pre><strong>Состав CSV:</strong> id, social_weight, name, surname, image, region, last_seen, schoolsIds, canWrite </pre>
+	<%= form_for @data, :url => manager_data_create_path, method: :put, :html => { :multipart => true } do |form| %>
+	 <div class="form-group">
+	 <label>Заголовок пакета с данными</label>
+	  <%= form.text_field :title, class: 'form-control' %>
+	  </div>
+	  <div class="form-group">
+	  <label>Файл с данными (CSV)</label>
+	  <%= form.file_field :packet %>
+	  </div>
+	  <div class="form-group">
+	  <%= form.submit 'Загрузить', class: "btn btn-success" %>
+	  </div>
+	<% end %>
+</div>

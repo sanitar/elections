@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
   def self.volunteers
     self.where("role_id = ?", 2)
   end
+
+  def admin?
+    role_id > 2
+  end
 end

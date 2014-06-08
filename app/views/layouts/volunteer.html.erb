@@ -36,8 +36,12 @@
 		            <li><a href="#">Закрытые</a></li>
 		            <li class="divider"></li>
 		            <li><a href="#">Начать новый</a></li>
+
 		          </ul>
 		        </li>
+	            <% if current_user.admin? %>
+		            <li class="active"><%= link_to "Перейти к управлению", manager_root_path %></li>
+	            <% end %>
 		      </ul>
 		      <p class="navbar-text navbar-right"> <%= "#{current_user.first_name} #{current_user.last_name }" %></p>
 		    </div><!-- /.navbar-collapse -->
