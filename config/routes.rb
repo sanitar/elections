@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  namespace :volunteer do
+  get 'dialog/index'
+  end
+
+  namespace :volunteer do
+  get 'dialog/contact'
+  end
+
+  namespace :volunteer do
+  get 'dialog/next'
+  end
+
+  namespace :volunteer do
+  get 'dashboard/index'
+  end
+
 #  namespace :users do
 #    get 'omniauth_callbacks/vkontakte'
 #  end

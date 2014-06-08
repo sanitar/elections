@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     else 
       User.create!(:provider => access_token.provider,
        :url => access_token.info.urls.Vkontakte,
-       :email => access_token.extra.raw_info.domain+'elections.dev',
+       :email => "#{access_token.uid}@elections.dev",
        :password => Devise.friendly_token[0,20]) 
     end
   end

@@ -1,0 +1,2 @@
+module Volunteer::DialogHelper
+end
