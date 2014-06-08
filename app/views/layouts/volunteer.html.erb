@@ -29,12 +29,12 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li class="active"><a href="#">Информация</a></li>
-		        <li class="dropdown">
+		        <li class="dropdown active">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Мои диалоги <b class="caret"></b></a>
 		          <ul class="dropdown-menu">
 		            <li><%= link_to 'Все', volunteer_dialog_index_path %></li>
 		            <li class="divider"></li>
-		            <li><%= link_to 'Начать новый', volunteer_dialog_contact_path, method: :post %></li>
+		            <li><%= link_to 'Начать новый', volunteer_dialog_contact_path, method: :post, data: { confirm: "Вам будет предложен случайный собеседник, продолжить?" } %></li>
 		            
 
 		          </ul>
