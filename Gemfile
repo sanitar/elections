@@ -26,6 +26,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 
 
+gem	'unicorn'
+
 
 
 # Use jquery as the JavaScript library
