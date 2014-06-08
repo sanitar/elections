@@ -1,5 +1,5 @@
 module VotersImport
-	require 'CSV'
+	require 'csv'
 
 	def self.import (filepath = '/Users/pan/Projects/elections/tmp/test.csv')
 
