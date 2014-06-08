@@ -2,7 +2,7 @@
 
 <ul>
 	<% @volunteers.each do |volunteer| %>
-		<li><%= volunteer.first_name %> <%= volunteer.last_name %></li>
+		<li><%= "#{volunteer.first_name} #{volunteer.last_name}" %> <%= "(админ)" if volunteer.admin? %></li>
 	<% end %>
 </ul>
 

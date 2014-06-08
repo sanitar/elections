@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def self.volunteers
-    self.where("role_id = ?", 2)
+    self.where("role_id in (?)", 3)
   end
 
   def admin?
