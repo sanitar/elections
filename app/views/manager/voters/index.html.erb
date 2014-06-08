@@ -2,7 +2,12 @@
 
 <ul>
 	<% @voters.each do |voter| %>
-		<li><%= voter.first_name %> <%= voter.last_name %></li>
+		<li>
+			<%= voter.first_name %> <%= voter.last_name %> 
+			<% if voter.conversation_status > 0 %>
+				<i>(агитирует <%= voter.conversation.user.name %>)</i>
+			<% end %>
+		</li>
 	<% end %>
 </ul>
 

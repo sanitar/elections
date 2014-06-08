@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   namespace :volunteer do
     get 'dialog/index'
-    get 'dialog/contact'
+    post 'dialog/contact'
     get 'dialog/next'
+    get 'dialog/show/:id' => 'dialog#show', as: :show_dialog
 
     root to: 'dashboard#index'
   end
