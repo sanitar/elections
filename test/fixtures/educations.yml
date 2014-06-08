@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: educations
+#
+#  id           :integer          not null, primary key
+#  school_vk_id :integer
+#  voter_id     :integer
+#  year_from    :integer
+#  year_to      :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_vk_id: MyString
+  voter_id: MyString
+  date_from: 2014-06-08 16:47:48
+  date_to: 2014-06-08 16:47:48
+
+two:
+  school_vk_id: MyString
+  voter_id: MyString
+  date_from: 2014-06-08 16:47:48
+  date_to: 2014-06-08 16:47:48
