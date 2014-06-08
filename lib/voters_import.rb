@@ -1,7 +1,7 @@
 module VotersImport
 	require 'csv'
 
-	def self.import (filepath = '/Users/pan/Projects/elections/tmp/test.csv')
+	def self.import (filepath = Rails.root.join('tmp', 'test.csv'))
 
 		body = File.read(filepath)
 

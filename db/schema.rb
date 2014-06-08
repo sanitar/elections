@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608170714) do
+ActiveRecord::Schema.define(version: 20140608184648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,10 +93,12 @@ ActiveRecord::Schema.define(version: 20140608170714) do
     t.integer  "status_id"
     t.integer  "conversation_status", default: 0
     t.string   "image_url"
+    t.integer  "social_weight"
   end
 
   add_index "voters", ["can_write"], name: "index_voters_on_can_write", using: :btree
   add_index "voters", ["district"], name: "index_voters_on_district", using: :btree
+  add_index "voters", ["social_weight"], name: "index_voters_on_social_weight", using: :btree
   add_index "voters", ["vk_id"], name: "index_voters_on_vk_id", unique: true, using: :btree
 
 end
