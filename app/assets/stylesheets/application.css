@@ -14,7 +14,10 @@
  *= require_self
  *= require bootstrap.min
  */
-body { padding-bottom: 70px; }
+body { 
+  padding-bottom: 70px; 
+  
+}
 
 .pagination {
   text-align: center;

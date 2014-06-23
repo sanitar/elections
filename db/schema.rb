@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608194159) do
+ActiveRecord::Schema.define(version: 20140623202209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 20140608194159) do
     t.integer  "conversation_status", default: 0
     t.string   "image_url"
     t.integer  "social_weight"
+    t.datetime "bdate"
+    t.datetime "last_seen"
   end
 
   add_index "voters", ["can_write"], name: "index_voters_on_can_write", using: :btree

@@ -1,5 +1,9 @@
-<h1>Вы начали новый диалог</h1>
+<h1>Текущий диалог</h1>
 <h3>Собеседник: <%= @conversation.voter.name %></h3>
-
 <p>Начало диалога: <%= @conversation.created_at %></p>
+<p><%= image_tag @conversation.voter.image_url %></p>
+
+<%= link_to "Начать диалог", "http://vk.com/write#{@conversation.voter.vk_id}", target: "_blank" %>
+
+
 

@@ -1,0 +1,11 @@
+<h2><%= @voter.name %></h2>
+  	
+<p>
+	<%= image_tag @voter.image_url, class: "img-circle" %>
+
+	<% if @voter.can_write? %>
+		<%= link_to "Открыть старницу с диалогом Вконтакте", "http://vk.com/write#{@voter.vk_id}", target: "_blank", class: 'btn btn-info' %>
+	<% else %>
+		<%= link_to "Пользователь запретил сообщения, перейти на страницу", "http://vk.com/id#{@voter.vk_id}", target: "_blank", class: 'btn btn-warning' %>
+	<% end %>
+</p>

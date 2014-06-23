@@ -15,7 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'will_paginate'
-gem "paperclip", "~> 4.1"
+#gem "paperclip", "~> 4.1"
+gem "paperclip", "~> 3.5.3"
 
 gem 'pg'
 gem 'devise'

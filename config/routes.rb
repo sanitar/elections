@@ -15,11 +15,16 @@ Rails.application.routes.draw do
   namespace :manager do
     root to: 'dashboard#index'
     
-    get 'volunteers/index'
-    get 'volunteers/show'
+    resources :volunteers do
+    end
 
-    get 'voters/index'  
-    get 'voters/show'
+    #get 'volunteers/index'
+    #get 'volunteers/show'
+
+    resources :voters do
+    end
+    # get 'voters/index'  
+    # get 'voters/show'
 
     get 'data/index'
     put 'data/create'
