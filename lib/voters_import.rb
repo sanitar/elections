@@ -21,7 +21,7 @@ module VotersImport
 					image_url: image,
 					district: region,
 					can_write: canWrite,
-					last_seen: Time.at(last_seen).to_datetime,
+					last_seen: Time.at(last_seen.to_i).to_datetime,
 					bdate: bdate,
 					sex: sex
 				})
