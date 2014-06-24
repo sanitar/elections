@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  first_name: false
+  last_name: false
+  middle_name: false
+  district: false
+  email: false
+  mobile: false
+  skype: false
+  age: false
+  sex: false
+  conversation_status: false
+
+two:
+  text: MyText
+  first_name: false
+  last_name: false
+  middle_name: false
+  district: false
+  email: false
+  mobile: false
+  skype: false
+  age: false
+  sex: false
+  conversation_status: false

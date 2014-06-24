@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :patterns
+
   namespace :volunteer do
     get 'dialog/index'
     post 'dialog/contact'

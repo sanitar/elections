@@ -1,0 +1,45 @@
+<h1>Listing patterns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Middle name</th>
+      <th>District</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Skype</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Conversation status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patterns.each do |pattern| %>
+      <tr>
+        <td><%= pattern.text %></td>
+        <td><%= pattern.first_name %></td>
+        <td><%= pattern.last_name %></td>
+        <td><%= pattern.middle_name %></td>
+        <td><%= pattern.district %></td>
+        <td><%= pattern.email %></td>
+        <td><%= pattern.mobile %></td>
+        <td><%= pattern.skype %></td>
+        <td><%= pattern.age %></td>
+        <td><%= pattern.sex %></td>
+        <td><%= pattern.conversation_status %></td>
+        <td><%= link_to 'Show', pattern %></td>
+        <td><%= link_to 'Edit', edit_pattern_path(pattern) %></td>
+        <td><%= link_to 'Destroy', pattern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pattern', new_pattern_path %>
