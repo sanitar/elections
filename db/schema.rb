@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608194159) do
+ActiveRecord::Schema.define(version: 20140624190223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,22 @@ ActiveRecord::Schema.define(version: 20140608194159) do
     t.integer  "voter_id"
     t.integer  "year_from"
     t.integer  "year_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patterns", force: true do |t|
+    t.text     "text"
+    t.boolean  "first_name"
+    t.boolean  "last_name"
+    t.boolean  "middle_name"
+    t.boolean  "district"
+    t.boolean  "email"
+    t.boolean  "mobile"
+    t.boolean  "skype"
+    t.boolean  "age"
+    t.boolean  "sex"
+    t.boolean  "conversation_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,10 +99,6 @@ ActiveRecord::Schema.define(version: 20140608194159) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "role_id"
-    t.string   "packet_file_name"
-    t.string   "packet_content_type"
-    t.integer  "packet_file_size"
-    t.datetime "packet_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
