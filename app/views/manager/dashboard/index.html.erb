@@ -1,5 +1,17 @@
 <h1>Дашборд</h1>
-<p class="text-center">
-	Привет, <%= "#{current_user.first_name} #{current_user.last_name }" %>, у тебя есть доступ к управлению сайтом.
-</p>
+<div class="row">
+	<div class="col-md-5">
+		<div class="alert alert-dismissable alert-info">
+		<h4>Общая статистика:</h4>
+			<ul class="list-unstyled">
+				<li>Всегов избирателей: <%= @voters %></li>
+				<li>Всего волонтеров: <%= @volunteers %></li>
+				<li>Всего диалогов: <%= @conversations %></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-7">
+
+	</div>
+</div>
 

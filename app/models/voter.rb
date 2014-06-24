@@ -31,8 +31,8 @@ class Voter < ActiveRecord::Base
 
 	belongs_to :status
 
-	def self.ready_to_talk
-		where('conversation_status = ? and can_write = ?', 0, true)
+	def self.ready_to_talk district = '2', sex = 1
+		where('district = ? and sex = ? and conversation_status = ? and can_write = ?', district, sex, 0, true)
 	end
 
 	def name

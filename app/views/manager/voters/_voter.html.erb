@@ -1,11 +1,32 @@
 <h2><%= @voter.name %></h2>
   	
-<p>
-	<%= image_tag @voter.image_url, class: "img-circle" %>
+<div class="row">
+	<div class="col-md-6">
+		<div class="alert alert-dismissable alert-info">
+			<ul class="list-unstyled">
+				<li>Район: <strong><%= $distrcits[@voter.district.to_i]%></strong></li>
+				<li>Онлайн: <strong><%= @voter.last_seen.strftime('%d.%m.%Y %H:%M') %></strong></li>
+				<li>День рождения*: <strong><%= @voter.bdate.strftime('%d.%m.%Y') if @voter.bdate.present? %></strong></li>
+				<li>Соц. вес: <strong><%= @voter.social_weight %></strong></li>
+			</ul>
+			<br/>
+			<small><i>*если год рождения 2014, то указан только день и месяц</i></small>
+		</div>
+		
 
-	<% if @voter.can_write? %>
-		<%= link_to "Открыть старницу с диалогом Вконтакте", "http://vk.com/write#{@voter.vk_id}", target: "_blank", class: 'btn btn-info' %>
-	<% else %>
-		<%= link_to "Пользователь запретил сообщения, перейти на страницу", "http://vk.com/id#{@voter.vk_id}", target: "_blank", class: 'btn btn-warning' %>
-	<% end %>
-</p>
+		<% if @voter.can_write? %>
+			<%= link_to "Открыть диалог Вконтакте", "http://vk.com/write#{@voter.vk_id}", target: "_blank", class: 'btn btn-success btn-block' %>
+		<% else %>
+			<%= link_to "Перейти на страницу Вконтакте", "http://vk.com/id#{@voter.vk_id}", target: "_blank", class: 'btn btn-warning btn-block' %>
+		<% end %>
+	</div>
+	<div class="col-md-6 text-center">
+		<%= image_tag @voter.image_url, class: "img-circle" %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+
+	</div>
+</div>

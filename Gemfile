@@ -29,6 +29,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 
+gem "redis", "~> 3.0.1"
+gem "redis-namespace"
+
 
 gem	'unicorn'
 

@@ -30,12 +30,12 @@
 		      <ul class="nav navbar-nav">
 					<li class="active"><%= link_to 'Волонтеры', manager_volunteers_path %></li>
 					<li class="active"><%= link_to 'Электорат', manager_voters_path %></li>
-					<li class="active"><a href="#">Объявления</a></li>
+					<!--<li class="active"><a href="#">Объявления</a></li>-->
 					<li class="active"><%= link_to 'Данные', manager_data_index_path %></li>
-					<li class="active"><a href="#">Настройки</a></li>
+					<!--<li class="active"><a href="#">Настройки</a></li>-->
 					<li class="active"><%= link_to "Перейти в волонтерскую", volunteer_root_path %></li>
 		      </ul>
-		      <p class="navbar-text navbar-right"> <%= "#{current_user.first_name} #{current_user.last_name }" %></p>
+		      <p class="navbar-text navbar-right"> <%= "#{current_user.first_name} #{current_user.last_name }" %> (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)</p>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 

@@ -69,4 +69,21 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
+
+  def desired_sex
+    $redis.get "desired_sex:#{self.id}"
+  end
+
+  def desired_sex= sex = 1
+    $redis.set "desired_sex:#{self.id}", sex
+  end
+
+  def desired_district
+    $redis.get "desired_district:#{self.id}"
+  end
+
+  def desired_district= district = 1
+    $redis.set "desired_district:#{self.id}", district
+  end
+
 end
