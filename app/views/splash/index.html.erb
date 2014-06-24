@@ -1,23 +1,25 @@
-<div style="margin-top:200px;">
-	<% if !current_user.present? %>
-		<p class="text-center">
-			<%= link_to 'Авторизация через VK', user_omniauth_authorize_path(:vkontakte), class: "btn btn-default btn-lg" %>
-		</p>
-	<% elsif current_user.role_id.to_i < 2 %>
-		<p class="text-center">
-			Привет, <%= "#{current_user.first_name} #{current_user.last_name }" %>!
 
-			<%= form_tag volunteer_me_path, method: :post, remote: true do %>
+<div class="jumbotron">
+  <h1>Штаб волонтеров Марии Гайдар</h1>
+  <p>Чтобы начать агитировать жителей районов Хамовники, Арбат и Пресня, вам необходимо получить в штабе специальный одноразовый код, который потребуется ввести после авторизации через «ВКонтакте».</p>
+  <% if !current_user.present? %>
+	  <p>
+	  	<%= link_to 'Войти через «ВКонтакте»', user_omniauth_authorize_path(:vkontakte), class: "btn btn-primary btn-lg" %>
+	  </p>
+  <% elsif current_user.role_id.to_i < 2 %>
+	<p>
+		Привет, <%= "#{current_user.first_name} #{current_user.last_name }" %>!
 
-				<%= text_field_tag :v_code, '', placeholder: 'Секретный код волонтера', class: "form-control" %>
-				<p class="text-center" style='margin-top:20px'>
-					<%= submit_tag 'Отправить!', class: "btn btn-default"%>
-				</p>
+		<%= form_tag volunteer_me_path, method: :post, remote: true do %>
 
-			<% end %>
+			<%= text_field_tag :v_code, '', placeholder: 'Введи сюда секретный код волонтера', class: "form-control" %>
+			<p class="text-center" style='margin-top:20px'>
+				<%= submit_tag 'Отправить!', class: "btn btn-default"%>
+			</p>
+		<% end %>
 
-			<div id="volunteer-info"></div>
-		</p>
+		<div id="volunteer-info"></div>
+	</p>
 	<% end %>
 </div>
 

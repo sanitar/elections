@@ -1,1 +1,26 @@
-<h1>Дашборд</h1>
+<h1>Привет, <%= current_user.name %></h1>
+
+<div class="row">
+	<div class="col-md-5">
+		<h3>Ваши диалоги</h3>
+		<% if @conversations.present? %>
+			<ul class="list-group">
+				<% @conversations.each do |conversation| %>
+
+					<li class="list-group-item list-group-item-info">
+						Диалог с <%= link_to conversation.voter.name, volunteer_show_dialog_path(conversation.id) %> был начат <%= conversation.created_at.strftime('%d.%m.%Y %H:%M') %>
+					</li>
+				<% end %>
+			</ul>
+			<ul class="pager">
+				<li>
+					<%= link_to 'Перейти ко всем', volunteer_dialog_index_path %>
+				</li>
+			</ul>
+		<% else%>
+			<div class="alert alert-warning">
+				Вы не начали ниодного разговора. 
+			</div>
+		<% end %>
+	</div>
+</div>

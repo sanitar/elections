@@ -1,14 +1,24 @@
-<h1>Электорат</h1>
+<div class="row">
 
-<ul>
-	<% @voters.each do |voter| %>
-		<li>
-			<%= voter.first_name %> <%= voter.last_name %> 
-			<% if voter.conversation_status > 0 %>
-				<i>(агитирует <%= voter.conversation.user.name %>)</i>
+	<div class="col-md-5">
+		<h1>Электорат</h1>
+
+		<ul class="list-group">
+			<% @voters.each do |voter| %>
+				<% voter.can_write? ? style = 'info' : style = 'warning' %>
+				<li class="list-group-item list-group-item-<%=style%>">
+					<%= link_to voter.name, manager_voter_path(voter.id), remote: true %> 
+					<% if voter.conversation_status > 0 %>
+						<i>(агитирует <%= voter.conversation.user.name %>)</i>
+					<% end %>
+				</li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		</ul>
+		<ul class="pagination"><%= will_paginate @voter, container: false %></ul>
+	</div>
 
-<ul class="pagination"><%= will_paginate @voter, container: false %></ul>
+	<div class="col-md-7" id="voter-info">
+
+	</div>
+
+</div>

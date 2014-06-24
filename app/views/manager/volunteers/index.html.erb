@@ -1,9 +1,21 @@
-<h1>Волонтеры</h1>
+<div class="row">
 
-<ul>
-	<% @volunteers.each do |volunteer| %>
-		<li><%= "#{volunteer.first_name} #{volunteer.last_name}" %> <%= "(админ)" if volunteer.admin? %></li>
-	<% end %>
-</ul>
+	<div class="col-md-5">
+		<h1>Волонтеры</h1>
 
-<ul class="pagination"><%= will_paginate @volunteers, container: false %></ul>
+		<ul class="list-group">
+			<% @volunteers.each do |volunteer| %>
+				<li class="list-group-item list-group-item-info">
+					<span class="badge"><%= volunteer.conversations.count %></span>
+					<%= link_to "#{volunteer.first_name} #{volunteer.last_name}", manager_volunteer_path(volunteer.id), remote: true %> <%= "(админ)" if volunteer.admin? %>
+				</li>
+			<% end %>
+		</ul>
+		<ul class="pagination"><%= will_paginate @volunteers, container: false %></ul>
+	</div>
+
+	<div class="col-md-7" id="volunteer-info">
+
+	</div>
+
+</div>

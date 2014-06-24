@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   resources :patterns
 
   namespace :volunteer do
@@ -17,11 +16,23 @@ Rails.application.routes.draw do
   namespace :manager do
     root to: 'dashboard#index'
     
-    get 'volunteers/index'
-    get 'volunteers/show'
+    resources :volunteers do
+    end
 
-    get 'voters/index'  
-    get 'voters/show'
+    resources :voters do
+    end
+
+    namespace :statuses do 
+      resources :voters do
+        post 'activate' => 'voters#activate', as: :activate
+        post 'deactivate' => 'voters#deactivate', as: :deactivate
+      end
+
+      resources :conversations do
+          post 'activate' => 'conversations#activate', as: :activate
+          post 'deactivate' => 'conversations#deactivate', as: :deactivate
+      end
+    end
 
     get 'data/index'
     put 'data/create'

@@ -1,0 +1,9 @@
+<h1>Диалоги <%= @volunteer.name %></h1>
+  	
+<ul class="list-group">
+	<% @volunteer.conversations.each do |conversation| %>
+		<li class="list-group-item list-group-item-info"> 
+			<strong><%= conversation.voter.name %></strong> ( <%= conversation.created_at %> )
+		</li>
+	<% end %>
+</ul>

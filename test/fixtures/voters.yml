@@ -20,6 +20,8 @@
 #  conversation_status :integer          default(0)
 #  image_url           :string(255)
 #  social_weight       :integer
+#  bdate               :datetime
+#  last_seen           :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

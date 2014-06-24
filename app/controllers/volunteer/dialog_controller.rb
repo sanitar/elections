@@ -1,6 +1,6 @@
 class Volunteer::DialogController < Volunteer::ApplicationController
   def index
-  	@conversations = current_user.conversations
+  	@conversations = current_user.conversations.order("created_at DESC").paginate(page: params[:page], per_page: 10)
   end
 
   def construct_text_from(pattern, person)

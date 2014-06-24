@@ -4,5 +4,10 @@ class Manager::VolunteersController < Manager::ApplicationController
   end
 
   def show
+  	@volunteer = User.find_by_id(params[:id])
+
+  	respond_to do |format|
+  		format.js
+  	end
   end
 end

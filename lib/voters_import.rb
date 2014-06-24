@@ -10,7 +10,8 @@ module VotersImport
 				next if index == 0
 				
 				row = CSV.parse(line)
-				id, social_weight, name, surname, image, region, last_seen, schoolsIds, canWrite = row[0]
+				id, social_weight, name, surname, image, region, last_seen, schoolsIds, canWrite, bdate, sex = row[0]
+				#id;social_weight;name;surname;image;region;last_seen;schoolsIds;canWrite;bdate;sex;
 
 				voter = Voter.create({
 					vk_id: id,
@@ -19,7 +20,10 @@ module VotersImport
 					last_name: surname,
 					image_url: image,
 					district: region,
-					can_write: canWrite
+					can_write: canWrite,
+					last_seen: Time.at(last_seen.to_i).to_datetime,
+					bdate: bdate,
+					sex: sex
 				})
 
 				schoolsIds.to_s.split(',').each do |school_id|

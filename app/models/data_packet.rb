@@ -18,9 +18,17 @@ class DataPacket < ActiveRecord::Base
 	
 	has_attached_file :packet, :default_url => "/images/:style/missing.png"
 	
-	validates_attachment_presence :packet
-	do_not_validate_attachment_file_type :packet
-
 	validates :title, presence: true
+	validates_attachment_presence :packet
+
+	validates_attachment_content_type :packet,
+                                    	:content_type => ["text/csv", "text/comma-separated-values"]
+
+
+	#do_not_validate_attachment_file_type :packet
+
+	
+
+	
 	#attr_accessor :packet_file_name
 end

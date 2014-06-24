@@ -15,7 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'will_paginate'
-gem "paperclip", "~> 4.1"
+#gem "paperclip", "~> 4.1"
+gem "paperclip", "~> 3.5.3"
 
 gem 'pg'
 gem 'devise'
@@ -27,6 +28,9 @@ gem 'vkontakte_api', '~> 1.4'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+
+gem "redis", "~> 3.0.1"
+gem "redis-namespace"
 
 
 gem	'unicorn'

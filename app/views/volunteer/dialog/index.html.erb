@@ -1,7 +1,22 @@
 <h1>Мои диалоги</h1>
 
-<ul>
-	<% @conversations.each do |conversation| %>
-		<li>Ваш диалог с <strong><%= link_to conversation.voter.name, volunteer_show_dialog_path(conversation.id) %></strong> был начат <%= conversation.created_at %></li>
-	<% end %>
-</ul>
+
+<div class="row">
+	<div class="col-md-5">
+		<% if @conversations.present? %>
+			<ul class="list-group">
+				<% @conversations.each do |conversation| %>
+
+					<li class="list-group-item list-group-item-info">
+						<%= link_to conversation.voter.name, volunteer_show_dialog_path(conversation.id) %> был начат <%= conversation.created_at.strftime('%d.%m.%Y %H:%M') %>
+					</li>
+				<% end %>
+			</ul>
+			<ul class="pagination"><%= will_paginate @conversations, container: false %></ul>
+		<% else%>
+			<div class="alert alert-warning">
+				Вы не начали ниодного разговора. 
+			</div>
+		<% end %>
+	</div>
+</div>
