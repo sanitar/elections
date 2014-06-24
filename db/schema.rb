@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140624190223) do
-=======
 ActiveRecord::Schema.define(version: 20140624203514) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,14 +108,11 @@ ActiveRecord::Schema.define(version: 20140624203514) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "role_id"
-<<<<<<< HEAD
-=======
     t.string   "packet_file_name"
     t.string   "packet_content_type"
     t.integer  "packet_file_size"
     t.datetime "packet_updated_at"
     t.integer  "district_id",            default: 0
->>>>>>> master
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

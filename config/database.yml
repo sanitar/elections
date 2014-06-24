@@ -2,8 +2,8 @@ development:
   adapter: postgresql
   host: localhost
   database: elections
-  user: postgres
-  password: password
+  user: air
+  password: 
 
 
 # Warning: The database defined as "test" will be erased and
