@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   namespace :volunteer do
     get 'dialog/index'
     post 'dialog/contact'
@@ -18,13 +17,20 @@ Rails.application.routes.draw do
     resources :volunteers do
     end
 
-    #get 'volunteers/index'
-    #get 'volunteers/show'
-
     resources :voters do
     end
-    # get 'voters/index'  
-    # get 'voters/show'
+
+    namespace :statuses do 
+      resources :voters do
+        post 'activate' => 'voters#activate', as: :activate
+        post 'deactivate' => 'voters#deactivate', as: :deactivate
+      end
+
+      resources :conversations do
+          post 'activate' => 'conversations#activate', as: :activate
+          post 'deactivate' => 'conversations#deactivate', as: :deactivate
+      end
+    end
 
     get 'data/index'
     put 'data/create'

@@ -20,6 +20,8 @@
 #  conversation_status :integer          default(0)
 #  image_url           :string(255)
 #  social_weight       :integer
+#  bdate               :datetime
+#  last_seen           :datetime
 #
 
 class Voter < ActiveRecord::Base
@@ -29,10 +31,14 @@ class Voter < ActiveRecord::Base
 
 	has_one :conversation
 
-	belongs_to :status
+	belongs_to :status, class_name: "VoterStatus", foreign_key: :status_id
 
-	def self.ready_to_talk district = '2', sex = 1
-		where('district = ? and sex = ? and conversation_status = ? and can_write = ?', district, sex, 0, true)
+	#
+	# => Дистрикт стринговый, потому что тупанул в миграциях
+	# => @todo перед продом исправить тип дистрикта
+	#
+	def self.ready_to_talk district = ['0','1','2'], sex = [1,2]
+		where('district in (?) and sex in (?) and conversation_status = ? and can_write = ?', district.to_a, sex.to_a, 0, true)
 	end
 
 	def name

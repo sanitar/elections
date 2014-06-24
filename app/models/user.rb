@@ -24,6 +24,7 @@
 #  packet_content_type    :string(255)
 #  packet_file_size       :integer
 #  packet_updated_at      :datetime
+#  district_id            :integer          default(0)
 #
 
 class User < ActiveRecord::Base
