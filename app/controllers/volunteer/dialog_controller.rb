@@ -12,6 +12,26 @@ class Volunteer::DialogController < Volunteer::ApplicationController
   	@conversation = current_user.conversations.find_by_id(params[:id])
   end
 
+  def update_conversation_status
+    @status = ConversationStatus.find_by_id(params[:conversation_status_id])
+    @conversation = current_user.conversations.find_by_id(params[:id])
+    @conversation.update_column(:status_id, @status.id)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update_voter_status
+    @status = VoterStatus.find_by_id(params[:voter_status_id])
+    @conversation = current_user.conversations.find_by_id(params[:id])
+    @conversation.voter.update_column(:status_id, @status.id)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def next
   end
 end

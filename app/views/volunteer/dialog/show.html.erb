@@ -26,8 +26,36 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
+<div class="row"  style="padding-top:20px;">
+  <div class="col-md-3">
+    <div class="btn-group btn-block">
+      <button type="button" class="btn btn-info btn-xs" id="conversation-status"><%= @conversation.status.present? ? @conversation.status.name : 'Выберите статус диалога' %></button>
+      <button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <% ConversationStatus.all.each do |c_status| %>
+          <li>
+            <%= link_to c_status.name, volunteer_update_conversation_status_path(@conversation.id, c_status.id), remote: true, method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="btn-group btn-block">
+      <button type="button" class="btn btn-info btn-xs" id="voter-status"><%= @conversation.voter.status.present? ? @conversation.status.name : 'Выберите статус избирателя' %></button>
+      <button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <% VoterStatus.all.each do |v_status| %>
+          <li>
+            <%= link_to v_status.name, volunteer_update_voter_status_path(@conversation.id, v_status.id), remote: true, method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-6">
     <h4>Как начать разговор?</h4>
     <blockquote><%= @conversation.voter.first_name %>, приветствую.
     Я волонтер команды Марии Гайдар.
