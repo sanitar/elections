@@ -3,8 +3,15 @@ class Volunteer::DialogController < Volunteer::ApplicationController
   	@conversations = current_user.conversations.order("created_at DESC").paginate(page: params[:page], per_page: 10)
   end
 
+  def new
+    @conversation = Conversation.new
+  end
+
   def contact
-  	@conversation = current_user.talk_to(Voter.ready_to_talk.order("RANDOM()").limit(1)[0].id)
+    params[:settings][:district].present? ? district = [params[:settings][:district].to_i.to_s] : district = [0,1,2]
+    params[:settings][:sex].present? ? sex = [params[:settings][:sex].to_i] : sex = [1,2]
+
+  	@conversation = current_user.talk_to(Voter.ready_to_talk(district, sex).order("RANDOM()").limit(1)[0].id)
     render :show
   end
 

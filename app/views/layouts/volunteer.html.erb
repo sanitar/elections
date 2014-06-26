@@ -29,7 +29,7 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li class="active"><%= link_to 'Мои диалоги', volunteer_dialog_index_path %></li>
-		        <li class="active"><%= link_to 'Начать новый диалог', volunteer_dialog_contact_path, method: :post, data: { confirm: "Вам будет предложен случайный собеседник, продолжить?" } %></li>
+		        <li class="active"><%= link_to 'Начать новый диалог', volunteer_dialog_new_path %></li>
 	            <% if current_user.admin? %>
 		            <li class="active"><%= link_to "Перейти к управлению", manager_root_path %></li>
 	            <% end %>

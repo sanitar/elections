@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'dialog/index'
     post 'dialog/contact'
     get 'dialog/next'
+    get 'dialog/new'
     get 'dialog/show/:id' => 'dialog#show', as: :show_dialog
 
     post 'dialog/:id/update-conversation/:conversation_status_id' => 'dialog#update_conversation_status', as: :update_conversation_status
