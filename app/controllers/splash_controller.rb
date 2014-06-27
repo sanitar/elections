@@ -20,8 +20,8 @@ class SplashController < ApplicationController
 	def volunteer_me
 
 		code = Code.find_by_value(params[:v_code])
-		
-		if params[:v_code] == 'volunteer' or code.present?
+
+		if code.present?
 			current_user.update_column(:role_id, 2)
 			code.delete
 			@ok = true
