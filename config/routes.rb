@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :voters do
     end
 
+    resources :codes do
+      post 'deactivate' => 'codes#deactivate', as: :deactivate
+    end
+
     namespace :statuses do 
       resources :voters do
         post 'activate' => 'voters#activate', as: :activate

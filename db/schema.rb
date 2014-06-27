@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624203514) do
+ActiveRecord::Schema.define(version: 20140627193528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "codes", force: true do |t|
+    t.string   "value"
+    t.string   "role_id"
+    t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conversation_statuses", force: true do |t|
     t.string   "name"
@@ -49,6 +57,22 @@ ActiveRecord::Schema.define(version: 20140624203514) do
     t.integer  "voter_id"
     t.integer  "year_from"
     t.integer  "year_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patterns", force: true do |t|
+    t.text     "text"
+    t.boolean  "first_name"
+    t.boolean  "last_name"
+    t.boolean  "middle_name"
+    t.boolean  "district"
+    t.boolean  "email"
+    t.boolean  "mobile"
+    t.boolean  "skype"
+    t.boolean  "age"
+    t.boolean  "sex"
+    t.boolean  "conversation_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
