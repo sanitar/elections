@@ -2,7 +2,7 @@ class Manager::CodesController < Manager::ApplicationController
 
 	def index
 		@codes = Code.where(active: true)
-		@out_codes = Code.where(active: false).count
+		@out_codes = Code.where(active: false)
 	end
 
 	def create

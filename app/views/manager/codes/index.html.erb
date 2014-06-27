@@ -7,14 +7,11 @@
 			<% @codes.each do |code| %>
 				  
 				    <h4 class="list-group-item-heading"><%= code.value %> &mdash; <%= link_to 'выдать', manager_code_deactivate_path(code.id), method: :post %></h4>
-				    
-				  
 			<% end %>
 		</div>
 
-		<p>Выдано, но не использовано кодов: <%= @out_codes %></p>
+		<p>Выданные, но не использованные коды (<%= @out_codes.count %>): <% @out_codes.each do |code| %><%= code.value %>&nbsp;<% end %></p>
 	</div>
-
 	<div class="col-md-7" id="status-info">
 
 
