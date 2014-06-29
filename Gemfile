@@ -34,6 +34,7 @@ gem "redis-namespace"
 
 
 gem	'unicorn'
+gem 'newrelic_rpm'
 
 
 
