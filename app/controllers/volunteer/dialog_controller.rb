@@ -5,7 +5,6 @@ class Volunteer::DialogController < Volunteer::ApplicationController
 
   def construct_text_from(pattern, person)
     while !(opening_bracket_index = pattern.index('{')).nil?
-      puts pattern
       closing_bracket_index = pattern.index('}')
       if !pattern[opening_bracket_index+1, closing_bracket_index-opening_bracket_index].index('{').nil?
         closing_bracket_index = closing_bracket_index + pattern.slice(closing_bracket_index+1..-1).index('}') + 1
