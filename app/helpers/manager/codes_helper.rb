@@ -1,0 +1,2 @@
+module Manager::CodesHelper
+end

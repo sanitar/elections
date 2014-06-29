@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Elections</title>
+  <title>Штаб волонтеров Марии Гайдар</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -38,6 +38,8 @@
 							<li><%= link_to 'Диалогов', manager_statuses_conversations_path %></li>
 						</ul>
 					</li>
+					
+					<li class="active"><%= link_to 'Коды', manager_codes_path %></li>
 					<li class="active"><%= link_to 'Данные', manager_data_index_path %></li>
 					<li class="active"><%= link_to "Рыбы", manager_patterns_path %></li>
 					<!--<li class="active"><a href="#">Настройки</a></li>-->

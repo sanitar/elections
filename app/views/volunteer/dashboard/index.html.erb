@@ -7,8 +7,13 @@
 			<ul class="list-group">
 				<% @conversations.each do |conversation| %>
 
-					<li class="list-group-item list-group-item-info">
-						Диалог с <%= link_to conversation.voter.name, volunteer_show_dialog_path(conversation.id) %> был начат <%= conversation.created_at.strftime('%d.%m.%Y %H:%M') %>
+					<li class="list-group-item list-group-item-info"> 
+						<strong><%= link_to conversation.voter.name, "http://vk.com/id#{conversation.voter.vk_id}", target: "_blank" %></strong> ( <%= conversation.created_at %> )
+						<% if conversation.status_id.present? %>
+							<p>Статус диалога: <strong><%= ConversationStatus.find_by_id(conversation.status_id).name%></strong></p>
+						<% else %>
+							<p>Статус диалога неизвестен</p>
+						<% end %>
 					</li>
 				<% end %>
 			</ul>

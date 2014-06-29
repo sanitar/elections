@@ -1,9 +1,32 @@
-<h1>Диалоги <%= @volunteer.name %></h1>
+
+
+<h2>Волонтер: <%= @volunteer.name %></h2>
   	
-<ul class="list-group">
-	<% @volunteer.conversations.each do |conversation| %>
-		<li class="list-group-item list-group-item-info"> 
-			<strong><%= conversation.voter.name %></strong> ( <%= conversation.created_at %> )
-		</li>
-	<% end %>
-</ul>
+<div class="row">
+	<div class="col-md-12">
+	<%= link_to "Перейти на страницу Вконтакте", @volunteer.url, target: "_blank", class: 'btn btn-success btn-block' %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+	<h3>Диалоги волонтера (<%= @volunteer.conversations.count %>):</h3>
+	<ul class="list-group">
+		<% @volunteer.conversations.each do |conversation| %>
+			<li class="list-group-item list-group-item-info"> 
+				<strong><%= link_to conversation.voter.name, "http://vk.com/id#{conversation.voter.vk_id}", target: "_blank" %></strong> ( <%= conversation.created_at %> )
+				<% if conversation.status_id.present? %>
+					<p>Статус диалога: <strong><%= ConversationStatus.find_by_id(conversation.status_id).name%></strong></p>
+				<% else %>
+					<p>Статус диалога неизвестен</p>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+	</div>
+</div>
+
+
+
+  	
+

@@ -33,9 +33,8 @@ gem "redis", "~> 3.0.1"
 gem "redis-namespace"
 
 
-gem	'unicorn'
-
-
+gem	'thin'
+gem 'tzinfo-data'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

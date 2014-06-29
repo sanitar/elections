@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     get 'dialog/index'
     post 'dialog/contact'
     get 'dialog/next'
+    get 'dialog/new'
     get 'dialog/show/:id' => 'dialog#show', as: :show_dialog
+
+    post 'dialog/:id/update-conversation/:conversation_status_id' => 'dialog#update_conversation_status', as: :update_conversation_status
+    post 'dialog/:id/update-voter/:voter_status_id' => 'dialog#update_voter_status', as: :update_voter_status
 
     root to: 'dashboard#index'
   end
@@ -23,6 +27,10 @@ Rails.application.routes.draw do
     end
 
     resources :voters do
+    end
+
+    resources :codes do
+      post 'deactivate' => 'codes#deactivate', as: :deactivate
     end
 
     namespace :statuses do 

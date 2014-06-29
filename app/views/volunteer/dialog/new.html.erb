@@ -1,0 +1,70 @@
+<h1>Новый диалог</h1>
+
+
+<div class="row">
+	<div class="col-md-4">
+	</div>
+	
+	<div class="col-md-4">
+
+		<%= form_tag volunteer_dialog_contact_path, method: :post, :html => { :multipart => true, class: "form-horizontal" } do |form| %>
+		  <fieldset>
+		    <legend>Предпочтения в собеседнике</legend>
+		    
+		    <div class="form-group">
+		      <label for="inputEmail" class="col-lg-2 control-label">Район</label>
+		      <div class="col-lg-10">
+			      
+			        <div class="radio">
+			          <label>
+			            <%= radio_button :settings, :district, "0" %>
+			            Хамовники
+			          </label>
+			        </div>
+			        <div class="radio">
+			          <label>
+			            <%= radio_button :settings, :district, "1" %>
+			            Пресня
+			          </label>
+			        </div>
+			        <div class="radio">
+			          <label>
+			            <%= radio_button :settings, :district, "2" %>
+			            Арбат
+			          </label>
+			        </div>			      
+		      </div>
+		    </div>
+
+		    <div class="form-group">
+		      <label for="textArea" class="col-lg-2 control-label">Пол</label>
+		      <div class="col-lg-10">
+		        	<div class="radio">
+			          <label>
+			            <%= radio_button :settings, :sex, "1" %>
+			            Женский
+			          </label>
+			        </div>
+			        <div class="radio">
+			          <label>
+			            <%= radio_button :settings, :sex, "2"%>
+			            Мужской
+			          </label>
+			        </div>
+		        <span class="help-block"></span>
+		      </div>
+		    </div>
+			<span class="help-block">Если ничего не отмечать, то выбор будет случайным. Попробуйте &mdash; так веселей!</span>
+		    
+		    <div class="form-group">
+		      <div class="col-lg-10 col-lg-offset-2">
+		        <%= submit_tag 'Начать диалог!', class: "btn btn-success" %>
+		      </div>
+		    </div>
+		  </fieldset>
+		<% end %>
+	</div>
+
+	<div class="col-md-4">
+	</div>
+</div>
