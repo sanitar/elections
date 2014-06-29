@@ -57,11 +57,7 @@
 
   <div class="col-md-6">
     <h4>Как начать разговор?</h4>
-    <blockquote><%= @conversation.voter.first_name %>, приветствую.
-    Я волонтер команды Марии Гайдар.
-    Пишу тебе, потому что ты указал(а) в личной информации район <%= $distrcits[@conversation.voter.district.to_i]%>.
-    Мария будет участвовать в выборах в твоем районе. 
-    Кстати, ты здесь прописан(а)?
+    <blockquote><%= @pattern.text %>
     </blockquote>
   </div>
 </div>

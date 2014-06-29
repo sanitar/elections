@@ -40,7 +40,10 @@ class Volunteer::DialogController < Volunteer::ApplicationController
   def contact
   	params[:settings][:district].present? ? district = [params[:settings][:district].to_i.to_s] : district = [0,1,2]
     	params[:settings][:sex].present? ? sex = [params[:settings][:sex].to_i] : sex = [1,2]
-  	@conversation = current_user.talk_to(Voter.ready_to_talk(district, sex).order("RANDOM()").limit(1)[0].id)
+    voter = Voter.ready_to_talk(district, sex).order("RANDOM()").limit(1)[0]
+  	@conversation = current_user.talk_to(voter.id)
+    @pattern = Pattern.suitable_for(voter).order("RANDOM()").limit(1)[0]
+    @pattern.text = construct_text_from(@pattern.text, voter)
   	render :show
   end
 
