@@ -1,4 +1,4 @@
-class PatternsController < ApplicationController
+class Manager::PatternsController < Manager::ApplicationController
   before_action :set_pattern, only: [:show, :edit, :update, :destroy]
 
   # GET /patterns
