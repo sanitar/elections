@@ -1,4 +1,4 @@
-<%= form_for(@pattern) do |f| %>
+<%= form_for([:manager, @pattern]) do |f| %>
   <% if @pattern.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pattern.errors.count, "error") %> prohibited this pattern from being saved:</h2>
@@ -14,46 +14,6 @@
   <div class="field">
     <%= f.label :text %><br>
     <%= f.text_area :text %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.check_box :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.check_box :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :middle_name %><br>
-    <%= f.check_box :middle_name %>
-  </div>
-  <div class="field">
-    <%= f.label :district %><br>
-    <%= f.check_box :district %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.check_box :email %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile %><br>
-    <%= f.check_box :mobile %>
-  </div>
-  <div class="field">
-    <%= f.label :skype %><br>
-    <%= f.check_box :skype %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.check_box :age %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.check_box :sex %>
-  </div>
-  <div class="field">
-    <%= f.label :conversation_status %><br>
-    <%= f.check_box :conversation_status %>
   </div>
   <div class="actions">
     <%= f.submit %>

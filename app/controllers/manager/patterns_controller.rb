@@ -24,11 +24,32 @@ class Manager::PatternsController < Manager::ApplicationController
   # POST /patterns
   # POST /patterns.json
   def create
+    text = pattern_params["text"] 
     @pattern = Pattern.new(pattern_params)
+
+    while !(opening_bracket_index = text.index('{')).nil?
+      closing_bracket_index = text.index('}')
+      if closing_bracket_index.nil?
+        raise "unbalanced parenthesis"
+      end
+      if !text[opening_bracket_index+1, closing_bracket_index-opening_bracket_index].index('{').nil?
+        slc = text.slice(closing_bracket_index+1..-1)
+        closing_bracket_index_diff = slc.index('}')
+        if closing_bracket_index_diff.nil?
+          raise "unbalanced parenthesis"
+        end
+        closing_bracket_index = closing_bracket_index + closing_bracket_index_diff + 1
+      end
+      json = JSON.parse(text[opening_bracket_index,closing_bracket_index-opening_bracket_index+1])
+      json.each_key { |key|
+        @pattern.send(key+"=",1)
+      }
+      text = text.slice(closing_bracket_index+1..-1)
+    end
 
     respond_to do |format|
       if @pattern.save
-        format.html { redirect_to @pattern, notice: 'Pattern was successfully created.' }
+        format.html { redirect_to [:manager, @pattern], notice: 'Pattern was successfully created.' }
         format.json { render :show, status: :created, location: @pattern }
       else
         format.html { render :new }
@@ -40,6 +61,7 @@ class Manager::PatternsController < Manager::ApplicationController
   # PATCH/PUT /patterns/1
   # PATCH/PUT /patterns/1.json
   def update
+    raise "unsupported method"
     respond_to do |format|
       if @pattern.update(pattern_params)
         format.html { redirect_to @pattern, notice: 'Pattern was successfully updated.' }
