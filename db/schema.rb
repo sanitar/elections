@@ -116,10 +116,6 @@ ActiveRecord::Schema.define(version: 20140627193528) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "role_id"
-    t.string   "packet_file_name"
-    t.string   "packet_content_type"
-    t.integer  "packet_file_size"
-    t.datetime "packet_updated_at"
     t.integer  "district_id",            default: 0
   end
 
