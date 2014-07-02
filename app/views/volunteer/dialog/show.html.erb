@@ -27,6 +27,10 @@
 </div>
 
 <div class="row"  style="padding-top:20px;">
+  <div class="col-md-6"><h5>В процессе общения не забывайте указывать подходящие статусы для диалога или пользователя:</h5></div>
+  <div class="col-md-6"><h5>Не знаешь как начать разговор? Попробуй такой вариант:</h5></div>
+  </div>
+  <div class="row"  style="padding-top:20px;">
   <div class="col-md-3">
     <div class="btn-group btn-block">
       <button type="button" class="btn btn-info btn-xs" id="conversation-status"><%= @conversation.status.present? ? @conversation.status.name : 'Выберите статус диалога' %></button>
@@ -56,7 +60,7 @@
   </div>
 
   <div class="col-md-6">
-    <h4>Как начать разговор?</h4>
+    
     <blockquote><%= @pattern.text %>
     </blockquote>
   </div>
