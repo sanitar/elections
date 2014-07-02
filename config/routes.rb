@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     resources :volunteers do
     end
 
+    resources :announcements do
+    end
+
     resources :patterns do
     end
 
