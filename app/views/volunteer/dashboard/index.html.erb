@@ -8,7 +8,7 @@
 				<% @conversations.each do |conversation| %>
 
 					<li class="list-group-item list-group-item-info"> 
-						<strong>><%= link_to conversation.voter.name, volunteer_show_dialog_path(conversation.id) %></strong> ( <%= conversation.created_at %> )
+						<strong><%= link_to conversation.voter.name, volunteer_show_dialog_path(conversation.id) %></strong> ( <%= conversation.created_at %> )
 						<% if conversation.status_id.present? %>
 							<p>Статус диалога: <strong><%= ConversationStatus.find_by_id(conversation.status_id).name%></strong></p>
 						<% else %>
