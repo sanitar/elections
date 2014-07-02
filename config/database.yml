@@ -19,4 +19,4 @@ production:
   adapter: postgresql
   host: localhost
   database: elections
-  password: 
+  password:
