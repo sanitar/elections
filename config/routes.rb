@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :patterns
+
   namespace :volunteer do
     get 'dialog/index'
     post 'dialog/contact'
@@ -19,6 +21,12 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
     
     resources :volunteers do
+    end
+
+    resources :announcements do
+    end
+
+    resources :patterns do
     end
 
     resources :voters do

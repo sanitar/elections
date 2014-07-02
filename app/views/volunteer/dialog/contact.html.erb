@@ -1,0 +1,9 @@
+<h1>Вы начали новый диалог</h1>
+<h3>Собеседник: <%= @conversation.voter.name %></h3>
+<ul>
+	<% @patterns.each do |pattern| %>
+		<li>Предлагаемое сообщение <strong><%= pattern.text %></strong></li>
+	<% end %>
+</ul>
+<p>Начало диалога: <%= @conversation.created_at %></p>
+

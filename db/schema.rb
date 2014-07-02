@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627193528) do
+ActiveRecord::Schema.define(version: 20140630183315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "announcements", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "user_id"
+    t.boolean  "visiable",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "codes", force: true do |t|
     t.string   "value"
@@ -116,10 +125,6 @@ ActiveRecord::Schema.define(version: 20140627193528) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "role_id"
-    t.string   "packet_file_name"
-    t.string   "packet_content_type"
-    t.integer  "packet_file_size"
-    t.datetime "packet_updated_at"
     t.integer  "district_id",            default: 0
   end
 

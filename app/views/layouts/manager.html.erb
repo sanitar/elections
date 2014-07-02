@@ -41,7 +41,9 @@
 					
 					<li class="active"><%= link_to 'Коды', manager_codes_path %></li>
 					<li class="active"><%= link_to 'Данные', manager_data_index_path %></li>
+					<li class="active"><%= link_to "Рыбы", manager_patterns_path %></li>
 					<!--<li class="active"><a href="#">Настройки</a></li>-->
+
 					<li class="active"><%= link_to "Перейти в волонтерскую", volunteer_root_path %></li>
 		      </ul>
 		      <p class="navbar-text navbar-right"> <%= "#{current_user.first_name} #{current_user.last_name }" %> (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)</p>
